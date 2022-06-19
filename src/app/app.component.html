@@ -1,0 +1,537 @@
+<section class="mt-5">
+  <div class="container">
+    <div class="row p-3 d-flex align-items-center justify-content-center"
+      style="border-radius: 10px; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px">
+      <div class="col-12"><b style="font-size: 17px">USER INFORMATION</b></div>
+
+      <input type="file" id="changepicture" (change)="showPreview($event)" style="display: none" />
+      <input type="file" id="changepicture2" (change)="showPreview2($event)" style="display: none" />
+
+      <div class="col-12 d-flex flex-column mt-4 mb-4 p-0" style="
+          border-radius: 10px;
+          box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+          width: 90%;
+        ">
+        <div class="picture1" style="
+            background-color: rgb(252, 193, 198);
+            border-radius: 10px 10px 0px 0px;
+            height: 270px;
+            overflow: hidden;
+            background-size: cover;
+          ">
+          <img *ngIf="isImageSelected2" [src]="imagePreviewSrc2" class="img-fluid"
+            style="background-size: cover; background-repeat: no-repeat" alt="..." />
+
+          <div class="d-flex justify-content-end align-items-end w-100 h-100">
+            <label class="d-flex justify-content-start align-items-center ps-2 mb-2 me-3 po" for="changepicture2" style="
+                height: 35px;
+                width: 180px;
+                border-radius: 7px;
+                background-color: rgb(227, 226, 226);
+                border: none;
+                right: 0px;
+                top: 170px;
+                cursor: pointer;
+              ">
+              <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" fill="currentColor"
+                class="bi bi-camera-fill me-2" viewBox="0 0 16 16">
+                <path d="M10.5 8.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
+                <path
+                  d="M2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4H2zm.5 2a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm9 2.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0z" />
+              </svg>
+              <span class="text-muted">EDIT COVER PHOTO</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-start align-items-center">
+          <div class="bg-white picture2 d-flex justify-content-center align-items-center position-absolute ms-5"
+            style="height: 280px; width: 280px; border-radius: 100%">
+            <div class="d-flex" style="
+                background-color: rgb(149, 147, 147);
+                height: 267px;
+                width: 267px;
+                border-radius: 100%;
+                overflow: hidden;
+                background-size: cover;
+              ">
+              <img *ngIf="isImageSelected" [src]="imagePreviewSrc" class="img-fluid"
+                style="background-size: cover; background-repeat: no-repeat" alt="..." />
+            </div>
+
+            <label class="d-flex justify-content-center align-items-center position-absolute" for="changepicture" style="
+                height: 50px;
+                width: 50px;
+                border-radius: 100%;
+                background-color: rgb(227, 226, 226);
+                border: none;
+                right: 0px;
+                top: 170px;
+                cursor: pointer;
+              ">
+              <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" fill="currentColor"
+                class="bi bi-camera-fill" viewBox="0 0 16 16">
+                <path d="M10.5 8.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
+                <path
+                  d="M2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4H2zm.5 2a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm9 2.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0z" />
+              </svg>
+            </label>
+          </div>
+        </div>
+
+        <div class="Form">
+          <div class="container d-flex justify-content-end">
+            <form class="row d-flex p-3" style="width: 62%">
+              <div class="col-6 mb-3">
+                <p class="mb-0 text-muted">USERNAME</p>
+                <input class="p-2" style="
+                    height: 30px;
+                    width: 85%;
+                    border-radius: 5px;
+                    border: 1px solid;
+                    outline: none;
+                  " value="" />
+              </div>
+              <div class="col-6 mb-3">
+                <p class="mb-0 text-muted">NICK NAME</p>
+                <input class="p-2" style="
+                    height: 30px;
+                    width: 85%;
+                    border-radius: 5px;
+                    border: 1px solid;
+                    outline: none;
+                  " value="" />
+              </div>
+              <div class="col-6 mb-3">
+                <p class="mb-0 text-muted">FIRST NAME</p>
+                <input class="p-2" style="
+                    height: 30px;
+                    width: 85%;
+                    border-radius: 5px;
+                    border: 1px solid;
+                    outline: none;
+                  " value="" />
+              </div>
+              <div class="col-6 mb-3">
+                <p class="mb-0 text-muted">LAST NAME</p>
+                <input class="p-2" style="
+                    height: 30px;
+                    width: 85%;
+                    border-radius: 5px;
+                    border: 1px solid;
+                    outline: none;
+                  " value="" />
+              </div>
+              <div class="col-6 mb-3">
+                <p class="mb-0 text-muted">POSITION</p>
+
+                <label for="cars"></label>
+                <select placeholder="Plese select" style="
+                    height: 30px;
+                    width: 85%;
+                    border-radius: 5px;
+                    border: 1px solid;
+                    outline: none;
+                  " name="cars" id="cars">
+                  <option value="" disabled selected hidden>
+                    Please select
+                  </option>
+                  <option value="saab">Programer</option>
+                  <option value="opel">Software Dev</option>
+                </select>
+              </div>
+
+              <div class="col-6 mb-3">
+                <p class="mb-0 text-muted">NATIONALITY</p>
+                <input class="p-2" style="
+                    height: 30px;
+                    width: 85%;
+                    border-radius: 5px;
+                    border: 1px solid;
+                    outline: none;
+                  " value="" />
+              </div>
+              <div class="col-6 mb-3">
+                <p class="mb-0 text-muted">TELEPHONE NUMBER</p>
+                <input type="number" class="p-2" style="
+                    height: 30px;
+                    width: 85%;
+                    border-radius: 5px;
+                    border: 1px solid;
+                    outline: none;
+                  " value="" />
+              </div>
+              <div class="col-6 mb-3">
+                <p class="mb-0 text-muted">STARTING DATE</p>
+                <input type="date" class="p-2" style="
+                    height: 30px;
+                    width: 85%;
+                    border-radius: 5px;
+                    border: 1px solid;
+                    outline: none;
+                  " value="" />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mt-5">
+  <div class="container">
+    <div class="row p-3 d-flex align-items-center justify-content-center"
+      style="border-radius: 10px; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px">
+      <div class="col-12">
+        <b style="font-size: 17px">CONTACT INFORMATION</b>
+      </div>
+
+      <div class="col-12 d-flex flex-column mt-4 mb-4 p-0" style="
+          border-radius: 10px;
+          width: 90%;
+        ">
+        <div class="Form">
+          <div class="container d-flex justify-content-center">
+
+            <form class="row d-flex p-3" style="width: 80%">
+              <div class="col-12 mb-3">
+                <p class="mb-0 text-muted">ADDRESS</p>
+                <input placeholder="Address" class="p-2" style="
+                    height: 30px;
+                    width: 100%;
+                    border-radius: 5px;
+                    border: 1px solid;
+                    outline: none;
+                  " value="" />
+              </div>
+
+              <div class="col-3 mb-3">
+                <p class="mb-0 text-muted">SUB DISTRICT</p>
+                <label for="cars"></label>
+                <select placeholder="Plese select" style="
+                    height: 30px;
+                    width: 100%;
+                    border-radius: 5px;
+                    border: 1px solid;
+                    outline: none;
+                  " name="cars" id="cars">
+                  <option value="" disabled selected hidden>
+                    Please select
+                  </option>
+                  <option value="saab">Programer</option>
+                  <option value="opel">Software Dev</option>
+                </select>
+              </div>
+
+              <div class="col-3 mb-3">
+                <p class="mb-0 text-muted">District</p>
+                <label for="cars"></label>
+                <select placeholder="Plese select" style="
+                    height: 30px;
+                    width: 100%;
+                    border-radius: 5px;
+                    border: 1px solid;
+                    outline: none;
+                  " name="cars" id="cars">
+                  <option value="" disabled selected hidden>
+                    Please select
+                  </option>
+                  <option value="saab">Programer</option>
+                  <option value="opel">Software Dev</option>
+                </select>
+              </div>
+
+              <div class="col-3 mb-3">
+                <p class="mb-0 text-muted">Province</p>
+                <label for="cars"></label>
+                <select placeholder="Plese select" style="
+                    height: 30px;
+                    width: 100%;
+                    border-radius: 5px;
+                    border: 1px solid;
+                    outline: none;
+                  " name="cars" id="cars">
+                  <option value="" disabled selected hidden>
+                    Please select
+                  </option>
+                  <option value="saab">POSTAL CODE</option>
+                  <option value="opel">Software Dev</option>
+                </select>
+              </div>
+
+              <div class="col-3 mb-3">
+                <p class="mb-0 text-muted">POSTAL CODE</p>
+                <label for="cars"></label>
+                <select placeholder="Plese select" style="
+                    height: 30px;
+                    width: 100%;
+                    border-radius: 5px;
+                    border: 1px solid;
+                    outline: none;
+                  " name="cars" id="cars">
+                  <option value="" disabled selected hidden>
+                    Please select
+                  </option>
+                  <option value="saab">Programer</option>
+                  <option value="opel">Software Dev</option>
+                </select>
+              </div>
+
+
+              <div class="col-4 mb-3">
+                <p class="mb-0 text-muted">FACEBOOK</p>
+                <input class="p-2" style="
+                    height: 30px;
+                    width: 100%;
+                    border-radius: 5px;
+                    border: 1px solid;
+                    outline: none;
+                  " value="" />
+              </div>
+
+              <div class="col-4 mb-3">
+                <p class="mb-0 text-muted">LINE</p>
+                <input class="p-2" style="
+                    height: 30px;
+                    width: 100%;
+                    border-radius: 5px;
+                    border: 1px solid;
+                    outline: none;
+                  " value="" />
+              </div>
+              <div class="col-4 mb-3">
+                <p class="mb-0 text-muted">INSTAGRAM</p>
+                <input class="p-2" style="
+                    height: 30px;
+                    width: 100%;
+                    border-radius: 5px;
+                    border: 1px solid;
+                    outline: none;
+                  " value="" />
+              </div>
+
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mt-5">
+  <div class="container">
+    <div class="row p-3 d-flex align-items-center justify-content-center"
+      style="border-radius: 10px; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px">
+      <div class="col-12">
+        <b style="font-size: 17px">EDUCATION INFORMATION</b>
+      </div>
+
+      <div class="col-12 d-flex flex-column mt-4 mb-4 p-0" style="
+          border-radius: 10px;
+         
+          width: 90%;
+        ">
+        <div class="Form">
+          <div class="container d-flex justify-content-center">
+            <mat-stepper orientation="vertical">
+              <mat-step>
+                <ng-template matStepLabel>Step 1</ng-template>
+                <ng-template matStepContent>
+                  <p>UNIVERSITY NAME</p>
+                  <input type="text">
+                  <button mat-button matStepperNext>Next</button>
+                </ng-template>
+              </mat-step>
+              <mat-step>
+                <ng-template matStepLabel>Step 2</ng-template>
+                <ng-template matStepContent>
+                  <p>UNIVERSITY NAME</p>
+                  <input type="text">
+                  <button mat-button matStepperPrevious>Back</button>
+                  <button mat-button matStepperNext>Next</button>
+                </ng-template>
+              </mat-step>
+              <mat-step>
+                <ng-template matStepLabel>Step 3</ng-template>
+                <p>This content was rendered eagerly</p>
+                <button mat-button matStepperPrevious>Back</button>
+              </mat-step>
+            </mat-stepper>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="mt-5">
+  <div class="container">
+    <div class="row p-3 d-flex align-items-center justify-content-center"
+      style="border-radius: 10px; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px">
+      <div class="col-12">
+        <b style="font-size: 17px">EXPERIENCE INFORMATION</b>
+      </div>
+
+      <div class="col-12 d-flex flex-column mt-4 mb-4 p-0" style="
+          border-radius: 10px;
+          
+          width: 90%;
+        ">
+        <div class="Form">
+          <div class="container d-flex justify-content-center">
+            <mat-stepper orientation="vertical">
+              <mat-step>
+                <ng-template matStepLabel>Step 1</ng-template>
+                <ng-template matStepContent>
+                  <p>ADD EDUCATION</p>
+                  <input type="text">
+                  <button mat-button matStepperNext>Next</button>
+                </ng-template>
+              </mat-step>
+              <mat-step>
+                <ng-template matStepLabel>Step 2</ng-template>
+                <ng-template matStepContent>
+                  <p>ADD EDUCATION</p>
+                  <input type="text">
+                  <button mat-button matStepperPrevious>Back</button>
+                  <button mat-button matStepperNext>Next</button>
+                </ng-template>
+              </mat-step>
+              <mat-step>
+                <ng-template matStepLabel>Step 3</ng-template>
+                <p>This content was rendered eagerly</p>
+                <button mat-button matStepperPrevious>Back</button>
+              </mat-step>
+            </mat-stepper>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="mt-5">
+  <div class="container">
+    <div class="row p-3 d-flex align-items-center justify-content-center"
+      style="border-radius: 10px; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px">
+      <div class="col-12">
+        <b style="font-size: 17px">SKILL INFORMATION</b>
+      </div>
+
+      <div class="col-12 d-flex flex-column mt-4 mb-4 p-4" style="
+          border-radius: 10px;
+         
+          width: 90%;
+        ">
+        <div class="Form">
+          <div class="container d-flex flex-column justify-content-center align-items-center">
+            <div class="row">
+              <div class="col-12">
+                <div class="mb-5">
+                  <b>Python</b>
+                  <mat-slider class="w-100" style="height: 10px !important;" thumbLabel [displayWith]="formatLabel"
+                    tickInterval="7" step="1" min="0" max="10" value="7" aria-label="units"></mat-slider>
+                </div>
+
+                <div>
+                  <b>React</b>
+                  <mat-slider class="w-100" thumbLabel [displayWith]="formatLabel" tickInterval="7" step="1" min="0"
+                    max="10" value="5" aria-label="units"></mat-slider>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="mt-5">
+  <div class="container">
+    <div class="row p-3 d-flex align-items-center justify-content-center"
+      style="border-radius: 10px; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px">
+      <div class="col-12">
+        <b style="font-size: 17px">INTEREST INFORMATION</b>
+      </div>
+
+      <div class="col-12 d-flex flex-column mt-4 mb-4 p-0" style="
+          border-radius: 10px;
+          box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+          width: 90%;
+        ">
+        <div class="Form">
+          <div class="">
+            <div class="row">
+              <div class="col-12">
+
+                <mat-form-field class="example-chip-list w-100" appearance="fill">
+                  <mat-label>ADD INTEREST</mat-label>
+                  <mat-chip-list #chipList aria-label="Fruit selection">
+                    <mat-chip *ngFor="let fruit of fruits" (removed)="remove(fruit)">
+                      {{fruit.name}}
+                      <button matChipRemove>
+                        <mat-icon>cancel</mat-icon>
+                      </button>
+                    </mat-chip>
+                    <input [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                      [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="add($event)">
+                  </mat-chip-list>
+                </mat-form-field>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mt-5 mb-5">
+  <div class="container">
+    <div class="row p-3 d-flex align-items-center justify-content-center"
+      style="border-radius: 10px; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px">
+      <div class="col-12">
+        <b style="font-size: 17px">GUILD INFORMATION</b>
+      </div>
+
+      <div class="col-12 d-flex flex-column mt-4 mb-4 p-0" style="
+          border-radius: 10px;
+          box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+          width: 90%;
+        ">
+        <div class="Form">
+          <div class="">
+            <div class="row">
+              <div class="col-12">
+
+                <mat-form-field class="example-chip-list w-100" appearance="fill">
+                  <mat-label>ADD GUILD</mat-label>
+                  <mat-chip-list #chipList2 aria-label="Fruit selection">
+                    <mat-chip *ngFor="let fruit2 of fruits2" (removed)="remove2(fruit2)">
+                      {{fruit2.name}}
+                      <button matChipRemove>
+                        <mat-icon>cancel</mat-icon>
+                      </button>
+                    </mat-chip>
+                    <input [matChipInputFor]="chipList2" [matChipInputSeparatorKeyCodes]="separatorKeysCodes2"
+                      [matChipInputAddOnBlur]="addOnBlur2" (matChipInputTokenEnd)="add2($event)">
+                  </mat-chip-list>
+                </mat-form-field>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<router-outlet></router-outlet>
